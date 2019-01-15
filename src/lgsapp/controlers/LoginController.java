@@ -108,13 +108,13 @@ public class LoginController implements Initializable {
 
     @FXML
     void linksignup(MouseEvent event) throws IOException {
-       /* Parent root = FXMLLoader.load(getClass().getResource("/app/views/signup.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/signup.fxml"));
 
         Node node = (Node) event.getSource();
 
         Stage stage = (Stage) node.getScene().getWindow();
 
-        stage.setScene(new Scene(root));  */
+        stage.setScene(new Scene(root));
 
     }
 
