@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
 
            if (rs.next()) {
                System.out.print("Login Sucess");
-               Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/welcome.fxml"));
+               Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/dashbord.fxml"));
 
                Node node = (Node) event.getSource();
 

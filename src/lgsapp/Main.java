@@ -1,26 +1,26 @@
 package lgsapp;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lgsapp.helpers.DbConnect;
+import javafx.util.Duration;
 
-import java.sql.*;
+import java.io.IOException;
 
 public class Main extends Application {
+
+
 
     @Override
     public void start(Stage stage) throws Exception {
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/login.fxml"));
-
-
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/welcome.fxml"));
         Scene scene = new Scene(root);
 
         scene.setFill(Color.TRANSPARENT);
@@ -29,34 +29,38 @@ public class Main extends Application {
 
         stage.initStyle(StageStyle.TRANSPARENT);
 
-        stage.show();
-    }
+        stage.show();  //show splash screen
 
- /*   public static void callfunc() {
-        PreparedStatement ps;
-        Connection con = DbConnect.getConnection();
-        String query = "SELECT * FROM users WHERE username=? AND password =?";
+        PauseTransition splashScreenDelay = new PauseTransition(Duration.seconds(5));
+        splashScreenDelay.setOnFinished(f -> {
 
-        try {
-            ps = con.prepareStatement(query);
-            ps.setString(1, "kushan");
-            ps.setString(2, "12345");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                System.out.println("Successfully connection with...."+rs.getString(1)+" "+rs.getString(2));
+            stage.hide();  //hide splash screen
+
+            try {  //open login screen
+                Parent rooti = FXMLLoader.load(getClass().getResource("/lgsapp/views/login.fxml"));
+                Scene sceene = new Scene(rooti);
+
+                sceene.setFill(Color.TRANSPARENT);
+
+                stage.setScene(sceene);
+
+               // stage.initStyle(StageStyle.TRANSPARENT);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
-        catch (SQLException e) {
-            System.out.println("Some thing wrong.... " + e );
-           // e.printStackTrace();
-        }
 
+
+
+
+
+        });
+        splashScreenDelay.playFromStart();
     }
- */
+
+
 
     public static void main(String[] args) {
-
-       // callfunc();  //to testing connection and access
         launch(args);
     }
 }
