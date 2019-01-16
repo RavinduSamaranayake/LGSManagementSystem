@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="create splash screen">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_8_40_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fontawesomefx_commons_8_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fontawesomefx_fontawesome_4_7_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/recurrence_8_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/view_8_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lgsapp/fullpackstyling.css" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="complete dashboard">
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/controlers/AboutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/controlers/AddSecController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/controlers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/views/about.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/views/add_secrataries.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lgsapp/views/home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LGS_Management_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LGS_Management_System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LGS_Management_System/lgsapp/views/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LGS_Management_System/lgsapp/views/test.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LGS_Management_System/lgsapp/views/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LGS_Management_System/lgsapp/views/welcome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lgsapp/controlers/DashbordControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lgsapp/controlers/DashbordControll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lgsapp/views/dashbord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/lgsapp/views/dashbord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lgsapp/views/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/lgsapp/views/test.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lgsapp/views/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/lgsapp/views/welcome.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,21 +110,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lgsapp/views/dashbord.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/home.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/TitleBarController.java">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/add_secrataries.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/about.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,10 +163,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/fullpackstyling.css">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/AddSecController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/AboutController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,48 +194,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="106" selection-start-line="89" selection-start-column="4" selection-end-line="106" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/title_bar.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/test.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lgsapp/views/signup.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -244,6 +240,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -274,6 +271,12 @@
         <option value="$PROJECT_DIR$/src/lgsapp/views/test.fxml" />
         <option value="$PROJECT_DIR$/src/lgsapp/controlers/DashbordControll.java" />
         <option value="$PROJECT_DIR$/src/lgsapp/views/dashbord.fxml" />
+        <option value="$PROJECT_DIR$/src/lgsapp/controlers/AboutController.java" />
+        <option value="$PROJECT_DIR$/src/lgsapp/controlers/AddSecController.java" />
+        <option value="$PROJECT_DIR$/src/lgsapp/controlers/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/lgsapp/views/about.fxml" />
+        <option value="$PROJECT_DIR$/src/lgsapp/views/add_secrataries.fxml" />
+        <option value="$PROJECT_DIR$/src/lgsapp/views/home.fxml" />
       </list>
     </option>
   </component>
@@ -349,7 +352,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547658389637" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547658502972" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -469,7 +472,7 @@
       <workItem from="1547521788645" duration="4792000" />
       <workItem from="1547561459891" duration="19253000" />
       <workItem from="1547617657055" duration="7240000" />
-      <workItem from="1547636597566" duration="7655000" />
+      <workItem from="1547636597566" duration="8627000" />
     </task>
     <task id="LOCAL-00001" summary="create Signup with all validations">
       <created>1547576904554</created>
@@ -485,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547589013442</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="complete dashboard">
+      <created>1547658451603</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547658451603</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59430000" />
+    <option name="totallyTimeSpent" value="60402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -579,7 +589,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="create Signup with all validations" />
     <MESSAGE value="create splash screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="create splash screen" />
+    <MESSAGE value="complete dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -835,10 +846,64 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lgsapp/views/dashbord.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/AddSecController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/controlers/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/views/about.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/views/add_secrataries.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lgsapp/views/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
