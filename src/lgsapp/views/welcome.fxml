@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" style="-fx-background-color: transparent;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="lgsapp.controlers.WelcomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="720.0" style="-fx-background-color: transparent;" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.WelcomeController">
     <children>
         <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <effect>
@@ -32,7 +32,7 @@
                                         <Insets bottom="50.0" />
                                     </padding>
                                     <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Quicksand; -fx-font-size: 3em; -fx-font-weight: bold; -fx-fill: #ff3b49;" text="Local Government Secratarie's Management System" wrappingWidth="308.162109375" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Quicksand; -fx-font-size: 3em; -fx-font-weight: bold; -fx-fill: #ff3b49;" text="Local Government Secretaries Management System" wrappingWidth="308.162109375" />
                                     </children>
                                 </VBox>
 

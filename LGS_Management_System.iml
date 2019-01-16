@@ -10,5 +10,10 @@
     <orderEntry type="library" name="sqlite-jdbc-3.23.1" level="project" />
     <orderEntry type="library" name="fontawesomefx-8.1" level="project" />
     <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="fontawesomefx-commons-8.13" level="project" />
+    <orderEntry type="library" name="fontawesomefx-fontawesome-4.7.0-1" level="project" />
+    <orderEntry type="library" name="controlsfx-8.40.13" level="project" />
+    <orderEntry type="library" name="view-8.4.2" level="project" />
+    <orderEntry type="library" name="recurrence-8.4.2" level="project" />
   </component>
 </module>
