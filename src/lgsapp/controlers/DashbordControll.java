@@ -29,16 +29,60 @@ public class DashbordControll implements Initializable {
 
 
     //my bad - the freaking mouse event
-    @FXML
+  /*  @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == btnDashboard) {
-           // loadStage("/home/fxml/Dashboard.fxml");
+            loadStage("/lgsapp/views/home.fxml");
         } else if (mouseEvent.getSource() == btnAddSec) {
           //  loadStage("/home/fxml/Students.fxml");
         } else if (mouseEvent.getSource() == btn_help) {
            // loadStage("/home/fxml/Timetable.fxml");
         }
+    }*/
+
+    @FXML
+    void btnHome(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/home.fxml"));
+
+        Node node = (Node) event.getSource();
+
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+
+        stage.setFullScreen (true);
+
+
+
     }
+
+    @FXML
+    void btnHelp(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/about.fxml"));
+
+        Node node = (Node) event.getSource();
+
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+
+    }
+
+    @FXML
+    void btnAdd(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/add_secrataries.fxml"));
+
+        Node node = (Node) event.getSource();
+
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+
+    }
+
+
+
+
 
     double x = 0, y =0;
     @FXML

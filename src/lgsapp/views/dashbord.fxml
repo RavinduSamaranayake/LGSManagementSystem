@@ -66,7 +66,7 @@
 
 
 
-                <Button fx:id="btnDashboard" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Home">
+                <Button fx:id="btnDashboard" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"   onMouseClicked="#btnHome" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Home">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
@@ -79,7 +79,7 @@
                 </Button>
 
 
-                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Add Secretaries" GridPane.columnIndex="1">
+                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false"  onMouseClicked="#btnAdd" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Add Secretaries" GridPane.columnIndex="1">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
@@ -93,7 +93,7 @@
 
 
 
-                <Button fx:id="btn_help" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Help &amp; about app" GridPane.columnIndex="2">
+                <Button fx:id="btn_help" contentDisplay="TOP" mnemonicParsing="false"   onMouseClicked="#btnHelp" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Help &amp; about app" GridPane.columnIndex="2">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
