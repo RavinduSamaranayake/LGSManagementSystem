@@ -76,7 +76,14 @@ public class DashbordControll implements Initializable {
 
         Stage stage = (Stage) node.getScene().getWindow();
 
+       // stage.setAlwaysOnTop(true);
+
         stage.setScene(new Scene(root));
+
+        stage.setFullScreen(true);
+
+
+
 
     }
 

@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="745.0" prefWidth="429.0" style="-fx-background-color:  #0C39FF;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.AddSecController">
+<AnchorPane id="AnchorPane" prefHeight="788.0" prefWidth="435.0" style="-fx-background-color:  #0C39FF;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.AddSecController">
     <children>
-        <Pane layoutY="31.0" prefHeight="710.0" prefWidth="429.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="31.0">
+        <Pane layoutX="4.0" layoutY="46.0" prefHeight="742.0" prefWidth="428.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="46.0">
 
 
             <children>
@@ -27,12 +27,12 @@
                      </image>
                  </ImageView>-->
 
-                <Label alignment="CENTER" layoutX="-42.0" layoutY="24.0" prefHeight="23.0" prefWidth="354.0" text="Local Government" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="-40.0" layoutY="3.0" prefHeight="23.0" prefWidth="354.0" text="Local Government" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutY="47.0" prefHeight="23.0" prefWidth="253.0" text="Secrataries Management" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="4.0" layoutY="25.0" prefHeight="23.0" prefWidth="253.0" text="Secrataries Management" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -41,38 +41,44 @@
 
                 <VBox onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: #fe4451;" HBox.hgrow="ALWAYS" />
                             
-                <ComboBox fx:id="cmbCuryr" editable="true" layoutX="229.0" layoutY="31.0" prefHeight="32.0" prefWidth="116.0" promptText="year">
+                <ComboBox fx:id="cmbCuryr" editable="true" layoutX="231.0" layoutY="10.0" prefHeight="32.0" prefWidth="116.0" promptText="year">
                 </ComboBox>
-                <TextField fx:id="txtFirstname" layoutX="67.0" layoutY="87.0" prefHeight="32.0" prefWidth="191.0" promptText="firstname" />
-                <TextField fx:id="txtLastname" layoutX="65.0" layoutY="127.0" prefHeight="32.0" prefWidth="191.0" promptText="lastname" />
-                <TextField fx:id="txtWOP" layoutX="67.0" layoutY="163.0" prefHeight="32.0" prefWidth="191.0" promptText="W and OP number" />
-                <TextField fx:id="txtEmail" layoutX="67.0" layoutY="203.0" prefHeight="32.0" prefWidth="278.0" promptText="email" />
-                <!--<TextField fx:id="txtGender" layoutX="67.0" layoutY="242.0" prefHeight="32.0" prefWidth="278.0" promptText="Gender" />-->
-                <ComboBox fx:id="cmbGender" editable="true" layoutX="67.0" layoutY="243.0" prefHeight="32.0" prefWidth="278.0" promptText="gender">
-                </ComboBox>
-                <DatePicker fx:id="txtBirthday" layoutX="67.0" layoutY="282.0" prefHeight="32.0" prefWidth="278.0" promptText="birthday" />
-                <DatePicker fx:id="txtFirsAppdate" layoutX="67.0" layoutY="322.0" prefHeight="32.0" prefWidth="278.0" promptText="first appointment date" />
-                <DatePicker fx:id="txtUpgrading" layoutX="67.0" layoutY="363.0" prefHeight="32.0" prefWidth="278.0" promptText="upgrading date" />
-                <DatePicker fx:id="txtRetirement" layoutX="67.0" layoutY="404.0" prefHeight="32.0" prefWidth="278.0" promptText="retirement date" />
-                <DatePicker fx:id="txtIncrement" layoutX="67.0" layoutY="443.0" prefHeight="32.0" prefWidth="278.0" promptText="increment date" />
-                <CheckBox fx:id="chkPb" layoutX="67.0" layoutY="549.0" mnemonicParsing="false" text="yrbegin" textFill="WHITE" />
-                <CheckBox fx:id="txtPm" layoutX="135.0" layoutY="549.0" text="yrmid" textFill="WHITE" />
-                <CheckBox fx:id="txtPe" layoutX="199.0" layoutY="549.0" text="yrend" textFill="WHITE" />
+                <TextField fx:id="txtFirstname" layoutX="65.0" layoutY="83.0" prefHeight="32.0" prefWidth="191.0" promptText="firstname" />
+                <TextField fx:id="txtLastname" layoutX="65.0" layoutY="119.0" prefHeight="32.0" prefWidth="191.0" promptText="lastname" />
+                <TextField fx:id="txtWOP" layoutX="65.0" layoutY="160.0" prefHeight="32.0" prefWidth="191.0" promptText="W&amp;OP number" />
 
-                <Button fx:id="btnSave" layoutX="60.0" layoutY="633.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Save" />
-                <ImageView fitHeight="123.0" fitWidth="142.0" layoutX="267.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
-                <Label layoutX="67.0" layoutY="530.0" text="performance report " textFill="WHITE">
+                <ComboBox fx:id="cmbOffice" editable="true" layoutX="65.0" layoutY="201.0" prefHeight="32.0" prefWidth="191.0" promptText="local government office">
+                </ComboBox>
+                <TextField fx:id="txtContact" layoutX="67.0" layoutY="247.0" prefHeight="32.0" prefWidth="278.0" promptText="contact number" />
+                <TextField fx:id="txtEmail" layoutX="67.0" layoutY="286.0" prefHeight="32.0" prefWidth="278.0" promptText="email" />
+                <!--<TextField fx:id="txtGender" layoutX="67.0" layoutY="242.0" prefHeight="32.0" prefWidth="278.0" promptText="Gender" />-->
+                <ComboBox fx:id="cmbGender" editable="true" layoutX="67.0" layoutY="326.0" prefHeight="32.0" prefWidth="278.0" promptText="gender">
+                </ComboBox>
+                <DatePicker fx:id="txtBirthday" layoutX="67.0" layoutY="366.0" prefHeight="32.0" prefWidth="278.0" promptText="birthday" />
+                <DatePicker fx:id="txtFirsAppdate" layoutX="67.0" layoutY="405.0" prefHeight="32.0" prefWidth="278.0" promptText="first appointment date" />
+                <DatePicker fx:id="txtUpgrading" layoutX="67.0" layoutY="444.0" prefHeight="32.0" prefWidth="278.0" promptText="upgrading date" />
+                <DatePicker fx:id="txtRetirement" layoutX="67.0" layoutY="483.0" prefHeight="32.0" prefWidth="278.0" promptText="retirement date" />
+                <DatePicker fx:id="txtIncrement" layoutX="67.0" layoutY="521.0" prefHeight="32.0" prefWidth="278.0" promptText="increment date" />
+                <CheckBox fx:id="chkPb" layoutX="69.0" layoutY="629.0" mnemonicParsing="false" text="yrbegin" textFill="WHITE" />
+                <CheckBox fx:id="txtPm" layoutX="137.0" layoutY="629.0" text="yrmid" textFill="WHITE" />
+                <CheckBox fx:id="txtPe" layoutX="201.0" layoutY="629.0" text="yrend" textFill="WHITE" />
+
+                <Button fx:id="btnSave" layoutX="240.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#saveInfo" prefHeight="32.0" prefWidth="148.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Save" />
+                <Button fx:id="btnExit" layoutX="71.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#exitTomain" prefHeight="32.0" prefWidth="148.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Exit to main" />
+                <Button fx:id="btnUpload" layoutX="305.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#uploadPic" prefHeight="32.0" prefWidth="74.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Add avatar" />
+                <ImageView fitHeight="132.0" fitWidth="142.0" layoutX="269.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+                <Label layoutX="71.0" layoutY="596.0" text="performance report " textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </Label>
-            <Label layoutX="67.0" layoutY="495.0" text="salary  increment" textFill="WHITE">
+            <Label layoutX="67.0" layoutY="567.0" text="salary  increment" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <RadioButton fx:id="radioyes" layoutX="199.0" layoutY="497.0" mnemonicParsing="false" text="yes" textFill="WHITE" />
-            <RadioButton fx:id="radiono" layoutX="250.0" layoutY="497.0" mnemonicParsing="false" text="no" textFill="WHITE" />
+            <RadioButton fx:id="radioyes" layoutX="193.0" layoutY="568.0" mnemonicParsing="false" text="yes" textFill="WHITE" />
+            <RadioButton fx:id="radiono" layoutX="248.0" layoutY="568.0" mnemonicParsing="false" text="no" textFill="WHITE" />
 
             </children>
         </Pane>
