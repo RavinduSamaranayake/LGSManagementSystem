@@ -64,7 +64,7 @@
                 <Button fx:id="btnEdit" layoutX="176.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#editInfo" prefHeight="32.0" prefWidth="72.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Edit" />
                 <Button fx:id="btnDelete" layoutX="290.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#deleteInfo" prefHeight="32.0" prefWidth="72.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Delete" />
                 <Button fx:id="btnUpload" layoutX="305.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#uploadPic" prefHeight="32.0" prefWidth="93.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Change avatar" />
-                <ImageView fitHeight="125.0" fitWidth="136.0" layoutX="262.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="avatarimg" fitHeight="125.0" fitWidth="136.0" layoutX="262.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                 <Label layoutX="71.0" layoutY="596.0" text="performance report " textFill="WHITE">
                     <font>
                         <Font size="13.0" />
@@ -108,6 +108,6 @@
 
         <TextField fx:id="txtSearch" layoutX="855.0" layoutY="26.0" prefHeight="32.0" prefWidth="239.0" promptText="search" />
         <TextField fx:id="txtsearchyr" layoutX="421.0" layoutY="26.0" prefHeight="32.0" prefWidth="191.0" promptText="enter year" />
-        <Button fx:id="btnLoadtable" layoutX="630.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#go" prefHeight="32.0" prefWidth="93.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="load>>>" />
+        <Button fx:id="btnLoadtable" layoutX="630.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#go" prefHeight="32.0" prefWidth="93.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="load&gt;&gt;&gt;" />
     </children>
 </AnchorPane>

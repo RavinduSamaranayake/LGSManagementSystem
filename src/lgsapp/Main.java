@@ -20,6 +20,8 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
 
 
+
+
         Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/welcome.fxml"));
         Scene scene = new Scene(root);
 
