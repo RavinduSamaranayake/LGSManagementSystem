@@ -6,26 +6,37 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lgsapp.helpers.DbConnect;
+import lgsapp.helpers.Secratary;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
-    private File file;
+    private File selectedFile;
+    private FileInputStream fis;
+
     private FileChooser fileChooser;
     private Desktop desktop = Desktop.getDesktop();
     private String imageFile;
+
+    Secratary secratary;
 
     @FXML
     private TextField txtFirstname;
@@ -115,7 +126,7 @@ public class HomeController implements Initializable {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files",
                         "*.bmp", "*.png", "*.jpg", "*.gif")); // limit fileChooser options to image files
-        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        selectedFile = fileChooser.showOpenDialog(new Stage());
 
         if (selectedFile != null) {
 
@@ -136,7 +147,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    void addInfo(MouseEvent event) throws IOException {
+    void addInfo(MouseEvent event) throws IOException {  // add secretary infos
         String firstname = txtFirstname.getText();
         String lastname = txtLastname.getText();
         String wop = txtWOP.getText();
@@ -150,13 +161,60 @@ public class HomeController implements Initializable {
         String upgrade = txtUpgrading.getValue().toString();
         String retdate = txtRetirement.getValue().toString();
         String incdate = txtIncrement.getValue().toString();
-        String chkpb = getchkboxData(chkPb);
-        String chkpm = getchkboxData(chkPm);
-        String chkpe = getchkboxData(chkPe);
+        String chpb = getchkboxData(chkPb);
+        String chpm = getchkboxData(chkPm);
+        String chpe = getchkboxData(chkPe);
         String incremantal = getIncremantal();
-        
+        fis = new FileInputStream(selectedFile);//get the image file
 
 
+       // secratary = new Secratary();
+
+       // PreparedStatement ps = secratary.addsecretary(firstname,lastname,wop,office,contact,email,gender,bday,fappdate,upgrade,retdate,incdate,incremantal,chpb,chpm,chpe,fis,curyr);
+         Connection con = DbConnect.getConnection();
+         PreparedStatement ps = null;
+
+        String query = "INSERT INTO `secrataries`( `fname`, `lname`, `wop`, `office`, `contact`, `email`, `gender`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend`, `imageid`, `curyr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+
+
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, firstname);
+            ps.setString(2, lastname);
+            ps.setString(3, wop);
+            ps.setString(4, office);
+            ps.setString(5, contact);
+            ps.setString(6, email);
+            ps.setString(7, gender);
+            ps.setString(8, bday);
+            ps.setString(9, fappdate);
+            ps.setString(10, upgrade);
+            ps.setString(11, retdate);
+            ps.setString(12, incdate);
+            ps.setString(13, incremantal);
+            ps.setString(14, chpb);
+            ps.setString(15, chpm);
+            ps.setString(16, chpe);
+            ps.setBinaryStream(17,(InputStream)fis,(int)selectedFile.length());
+            ps.setString(18, curyr);
+
+
+
+
+
+
+
+            if (ps.executeUpdate() > 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Successfully Saved");
+                String s = "Successfully Registered.";
+                alert.setContentText(s);
+                alert.showAndWait();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
      public String getchkboxData(CheckBox checkBox){  ///to get the data from check box

@@ -1,6 +1,6 @@
 package lgsapp.helpers;
 
-import java.sql.Blob;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ public class Secratary {
     Connection con;
     PreparedStatement ps;
 
-    public PreparedStatement addsecretary(String fname, String lname, String wop, String office, String contact, String email, String gender, String bday, String fappdate, String upgradedate, String retdate, String incdate , String inc, String beg, String mid, String end, Blob image,String curyr)  {
+    public PreparedStatement addsecretary(String fname, String lname, String wop, String office, String contact, String email, String gender, String bday, String fappdate, String upgradedate, String retdate, String incdate , String inc, String beg, String mid, String end, FileInputStream imagefile, String curyr)  {
         con = DbConnect.getConnection();
 
         String query = "INSERT INTO `secrataries`( `fname`, `lname`, `wop`, `office`, `contact`, `email`, `gender`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend`, `imageid`, `curyr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -34,7 +34,7 @@ public class Secratary {
             ps.setString(14, beg);
             ps.setString(15, mid);
             ps.setString(16, end);
-            ps.setBlob(17, image);
+            ps.setBinaryStream(17,imagefile);
             ps.setString(18, curyr);
 
 
