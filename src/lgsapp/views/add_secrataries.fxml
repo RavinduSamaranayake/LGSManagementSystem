@@ -66,7 +66,7 @@
                 <Button fx:id="btnSave" layoutX="240.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#saveInfo" prefHeight="32.0" prefWidth="148.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Save" />
                 <Button fx:id="btnExit" layoutX="71.0" layoutY="671.0" mnemonicParsing="false" onMouseClicked="#exitTomain" prefHeight="32.0" prefWidth="148.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Exit to main" />
                 <Button fx:id="btnUpload" layoutX="305.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#uploadPic" prefHeight="32.0" prefWidth="74.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Add avatar" />
-                <ImageView fitHeight="132.0" fitWidth="142.0" layoutX="269.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+                <!--<ImageView fitHeight="132.0" fitWidth="142.0" layoutX="269.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />-->
                 <Label layoutX="71.0" layoutY="596.0" text="performance report " textFill="WHITE">
                     <font>
                         <Font size="13.0" />
