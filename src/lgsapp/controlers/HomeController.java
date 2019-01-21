@@ -34,6 +34,12 @@ public class HomeController implements Initializable {
     private TextField txtLastname;
 
     @FXML
+    private TextField txtContact;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
     private TextField txtWOP;
 
     @FXML
@@ -131,15 +137,51 @@ public class HomeController implements Initializable {
 
     @FXML
     void addInfo(MouseEvent event) throws IOException {
-       /* Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/about.fxml"));
+        String firstname = txtFirstname.getText();
+        String lastname = txtLastname.getText();
+        String wop = txtWOP.getText();
+        String contact = txtContact.getText();
+        String email = txtEmail.getText();
+        String gender = cmbGender.getSelectionModel().getSelectedItem().toString();
+        String office = cmbOffice.getSelectionModel().getSelectedItem().toString();
+        String curyr = cmbCuryr.getSelectionModel().getSelectedItem().toString();
+        String bday = txtBirthday.getValue().toString();
+        String fappdate = txtFirstAppdate.getValue().toString();
+        String upgrade = txtUpgrading.getValue().toString();
+        String retdate = txtRetirement.getValue().toString();
+        String incdate = txtIncrement.getValue().toString();
+        String chkpb = getchkboxData(chkPb);
+        String chkpm = getchkboxData(chkPm);
+        String chkpe = getchkboxData(chkPe);
+        String incremantal = getIncremantal();
+        
 
-        Node node = (Node) event.getSource();
 
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        stage.setScene(new Scene(root));
-*/
     }
+
+     public String getchkboxData(CheckBox checkBox){  ///to get the data from check box
+        String value = "";
+        if (checkBox.isSelected()){
+            value = "yes";
+        }
+        else{
+            value = "no";
+        }
+        return value;
+    }
+
+    public String getIncremantal(){  //to get the data from radio btn
+        String value = "";
+        if (radioyes.isSelected()){
+            value = "yes";
+        }
+        else{
+            value = "no";
+        }
+        return value;
+    }
+
+
 
 
 

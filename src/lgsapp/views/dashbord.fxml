@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.DashbordControll">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="1359.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.DashbordControll">
     <children>
         <Pane prefHeight="135.0" prefWidth="1000.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <effect>
@@ -23,11 +23,11 @@
             </effect>
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                   <!-- <VBox onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: WHITE;" HBox.hgrow="ALWAYS" />-->
-               </children>
-            </HBox>
-              <!-- <fx:include source="title_bar.fxml" />-->
+                    <children>
+                        <!-- <VBox onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: WHITE;" HBox.hgrow="ALWAYS" />-->
+                    </children>
+                </HBox>
+                <!-- <fx:include source="title_bar.fxml" />-->
                 <Label layoutY="17.0" text="  Local Government" textFill="WHITE">
                     <font>
                         <Font size="48.0" />
@@ -40,12 +40,10 @@
                 </Label>
 
                 <VBox onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: #2D75E8;" HBox.hgrow="ALWAYS" />
-                <VBox layoutX="830.0" style="-fx-background-color:  #2D75E8;">
+                <VBox layoutX="830.0" prefHeight="60.0" prefWidth="527.0" style="-fx-background-color:  #2D75E8;">
                             <children>
-            
-                              
-                                                <fx:include source="title_bar.fxml" />
-                             </children>
+                                <fx:include source="title_bar.fxml" />
+                            </children>
                  </VBox>
 
 
@@ -66,7 +64,7 @@
 
 
 
-                <Button fx:id="btnDashboard" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false"   onMouseClicked="#btnHome" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Home">
+                <Button fx:id="btnDashboard" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnHome" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Home">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
@@ -79,7 +77,7 @@
                 </Button>
 
 
-                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false"  onMouseClicked="#btnAdd" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Add Secretaries" GridPane.columnIndex="1">
+                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnAdd" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Add Secretaries" GridPane.columnIndex="1">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
@@ -93,7 +91,7 @@
 
 
 
-                <Button fx:id="btn_help" contentDisplay="TOP" mnemonicParsing="false"   onMouseClicked="#btnHelp" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Help &amp; about app" GridPane.columnIndex="2">
+                <Button fx:id="btn_help" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnHelp" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Help &amp; about app" GridPane.columnIndex="2">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>

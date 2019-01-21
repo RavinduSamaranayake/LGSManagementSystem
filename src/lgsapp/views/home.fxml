@@ -11,11 +11,22 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="707.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lgsapp.controlers.HomeController">
     <children>
+
+        <VBox onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: WHITE;" HBox.hgrow="ALWAYS" />
+        <VBox layoutX="988.0" layoutY="-3.0" prefHeight="59.0" prefWidth="383.0" style="-fx-background-color:  WHITE;">
+            <children>
+
+
+                <fx:include source="title_bar.fxml" />
+            </children>
+        </VBox>
         <Pane prefHeight="707.0" prefWidth="409.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                <!-- <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="75.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
@@ -85,6 +96,7 @@
 
             </children>
         </Pane>
+
         <TableView fx:id="tblData" layoutX="421.0" layoutY="76.0" prefHeight="631.0" prefWidth="686.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="421.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="76.0">
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -103,7 +115,7 @@
             <TableColumn prefWidth="68.0" text="increment" />
             <TableColumn prefWidth="27.0" text="beg" />
             <TableColumn prefWidth="27.0" text="mid" />
-            <TableColumn prefWidth="27.0" text="end" />
+            <TableColumn prefWidth="34.0" text="end" />
          </columns>
         </TableView>
 
