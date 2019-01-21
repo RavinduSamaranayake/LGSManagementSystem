@@ -6,13 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 
 import java.awt.*;
 import java.io.File;
@@ -27,6 +27,65 @@ public class HomeController implements Initializable {
     private Desktop desktop = Desktop.getDesktop();
     private String imageFile;
 
+    @FXML
+    private TextField txtFirstname;
+
+    @FXML
+    private TextField txtLastname;
+
+    @FXML
+    private TextField txtWOP;
+
+    @FXML
+    private ComboBox cmbGender;
+
+    @FXML
+    private ComboBox cmbCuryr;
+
+    @FXML
+    private ComboBox cmbOffice;
+
+    @FXML
+    private DatePicker txtBirthday;
+
+    @FXML
+    private DatePicker txtFirstAppdate;
+
+    @FXML
+    private DatePicker txtUpgrading;
+
+    @FXML
+    private DatePicker txtRetirement;
+
+    @FXML
+    private DatePicker txtIncrement;
+
+    @FXML
+    private CheckBox chkPb;
+
+    @FXML
+    private CheckBox chkPm;
+
+    @FXML
+    private CheckBox chkPe;
+
+    @FXML
+    private RadioButton radioyes;
+
+    @FXML
+    private CheckBox radiono;
+
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     private ImageView img_frame;
@@ -39,8 +98,11 @@ public class HomeController implements Initializable {
 
     }
 
+
+
+
     @FXML
-    public void handle_load() throws MalformedURLException {
+    public void handle_load() throws MalformedURLException {  //to select image on hdd and set it to the image view
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
@@ -61,12 +123,23 @@ public class HomeController implements Initializable {
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
-            alert.setHeaderText("Please Select a File");
+            alert.setHeaderText("Please Select valid image File");
             alert.showAndWait();
         }
 
     }
 
+    @FXML
+    void addInfo(MouseEvent event) throws IOException {
+       /* Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/about.fxml"));
+
+        Node node = (Node) event.getSource();
+
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+*/
+    }
 
 
 
