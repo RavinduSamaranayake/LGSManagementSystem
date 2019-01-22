@@ -20,7 +20,7 @@ public class Secratary {
 
 
 
-    public Secratary(String fname, String lname, String wop, String office, String contact, String gender, String bday, String fappdate, String upgradedate, String retdate, String incdate, String inc, String beg, String mid, String end) {
+    public Secratary(String fname, String lname, String wop, String office, String contact, String bday, String fappdate, String upgradedate, String retdate, String incdate, String inc, String beg, String mid, String end) {
         this.fname = fname;
         this.lname = lname;
         this.wop = wop;

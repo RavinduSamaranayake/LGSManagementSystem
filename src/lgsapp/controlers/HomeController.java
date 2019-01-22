@@ -1,13 +1,15 @@
 package lgsapp.controlers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +18,8 @@ import javafx.stage.Stage;
 import lgsapp.helpers.DbConnect;
 import lgsapp.helpers.Secratary;
 
-import java.awt.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,11 +28,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
-    private File selectedFile;
+    private File selectedFile =null;
     private FileInputStream fis;
 
     private FileChooser fileChooser;
@@ -90,22 +94,74 @@ public class HomeController implements Initializable {
     private RadioButton radioyes;
 
     @FXML
-    private CheckBox radiono;
+    private RadioButton radiono;
+
+    @FXML
+    private TableView<Secratary> tblData;
+
+    @FXML
+    private TableColumn<Secratary, String> colfname;
+
+    @FXML
+    private TableColumn<Secratary, String> collname;
+
+    @FXML
+    private TableColumn<Secratary, String> colwop;
+
+    @FXML
+    private TableColumn<Secratary, String> coloffice;
+
+    @FXML
+    private TableColumn<Secratary, String> colcontact;
+
+    @FXML
+    private TableColumn<Secratary, String> colbday;
+
+    @FXML
+    private TableColumn<Secratary, String> colfappdate;
+
+    @FXML
+    private TableColumn<Secratary, String> colupgdate;
+
+    @FXML
+    private TableColumn<Secratary, String> colretdate;
+
+    @FXML
+    private TableColumn<Secratary, String> colincdate;
+
+    @FXML
+    private TableColumn<Secratary, String> colinc;
+
+    @FXML
+    private TableColumn<Secratary, String> colbeg;
+
+    @FXML
+    private TableColumn<Secratary, String> colmid;
+
+    @FXML
+    private TableColumn<Secratary, String> colend;
+
+    @FXML
+    private TextField txtSearch;
+
+    @FXML
+    private TextField txtsearchyr;
 
 
 
-
-
-
-
-
-
-
+    ObservableList<Secratary> oblist = FXCollections.observableArrayList(); //get data from model
+    Connection con = DbConnect.getConnection();
 
 
 
     @FXML
     private ImageView img_frame;
+
+
+
+
+
+
 
 
     @FXML
@@ -165,7 +221,14 @@ public class HomeController implements Initializable {
         String chpm = getchkboxData(chkPm);
         String chpe = getchkboxData(chkPe);
         String incremantal = getIncremantal();
-        fis = new FileInputStream(selectedFile);//get the image file
+
+        if(selectedFile == null){
+            fis = null;
+        }
+        else {
+            fis = new FileInputStream(selectedFile);//get the image file
+
+        }
 
 
        // secratary = new Secratary();
