@@ -30,7 +30,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
+
+
 
 public class HomeController implements Initializable {
     private File selectedFile =null;
@@ -151,7 +157,8 @@ public class HomeController implements Initializable {
 
     ObservableList<Secratary> oblist = FXCollections.observableArrayList(); //get data from model
     Connection con = DbConnect.getConnection();
-
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date date;
 
 
     @FXML
