@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="lgsdb.sqlite" uuid="143cbdd5-16dd-4efb-bf16-c0affa89d567">
+    <data-source name="lgsdb.sqlite" uuid="7b9f2c74-a3c6-4340-bc36-25719fb4c919">
       <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -10,7 +10,7 @@
       <auth-required>false</auth-required>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
-    <data-source name="lgsdb" uuid="933db684-4f53-4125-a032-0d42d720a51b">
+    <data-source name="lgsdb" uuid="733e9fa4-f27e-42af-9964-cb9b4a399a7c">
       <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1" dbms="SQLITE" exact-version="3.25.1" exact-driver-version="3.25">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

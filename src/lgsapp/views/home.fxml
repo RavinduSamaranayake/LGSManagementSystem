@@ -102,20 +102,20 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
          <columns>
-            <TableColumn prefWidth="75.0" text="First name" />
-            <TableColumn prefWidth="75.0" text="Last name" />
-            <TableColumn prefWidth="75.0" text="W&amp;OP number" />
-            <TableColumn prefWidth="75.0" text="LG office" />
-            <TableColumn prefWidth="75.0" text="Contact " />
-            <TableColumn prefWidth="75.0" text="Birthday" />
-            <TableColumn prefWidth="75.0" text="First apo_date" />
-            <TableColumn prefWidth="75.0" text="Upgra_date" />
-            <TableColumn prefWidth="75.0" text="Retire_date" />
-            <TableColumn prefWidth="76.0" text="incre_date" />
-            <TableColumn prefWidth="68.0" text="increment" />
-            <TableColumn prefWidth="27.0" text="beg" />
-            <TableColumn prefWidth="27.0" text="mid" />
-            <TableColumn prefWidth="34.0" text="end" />
+            <TableColumn fx:id="colfname" prefWidth="75.0" text="First name" />
+            <TableColumn fx:id="collname" prefWidth="75.0" text="Last name" />
+            <TableColumn fx:id="colwop" prefWidth="75.0" text="W&amp;OP number" />
+            <TableColumn fx:id="coloffice" prefWidth="75.0" text="LG office" />
+            <TableColumn fx:id="colcontact" prefWidth="75.0" text="Contact " />
+            <TableColumn fx:id="colbday" prefWidth="75.0" text="Birthday" />
+            <TableColumn fx:id="colfappdate" prefWidth="75.0" text="First apo_date" />
+            <TableColumn fx:id="colupgdate" prefWidth="75.0" text="Upgra_date" />
+            <TableColumn fx:id="colretdate" prefWidth="75.0" text="Retire_date" />
+            <TableColumn fx:id="colincdate" prefWidth="76.0" text="incre_date" />
+            <TableColumn fx:id="colinc" prefWidth="68.0" text="increment" />
+            <TableColumn fx:id="colbeg" prefWidth="27.0" text="beg" />
+            <TableColumn fx:id="colmid" prefWidth="27.0" text="mid" />
+            <TableColumn fx:id="colend" prefWidth="34.0" text="end" />
          </columns>
         </TableView>
 
