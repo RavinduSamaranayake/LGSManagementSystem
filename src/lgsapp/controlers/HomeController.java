@@ -336,15 +336,23 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    void go(MouseEvent event) throws IOException {
-       /* Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/about.fxml"));
+    void go(MouseEvent event) throws IOException {  //load the table
 
-        Node node = (Node) event.getSource();
+        String srchyr = txtsearchyr.getText();
 
-        Stage stage = (Stage) node.getScene().getWindow();
+        if(srchyr.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Table loading fail");
+            String s = "Please enter the Year what you want view";
+            alert.setContentText(s);
+            alert.showAndWait();
 
-        stage.setScene(new Scene(root));
-*/
+        }
+        else {
+            tblData.getItems().clear(); //clear all early data
+            refreshtable(srchyr); //load again
+        }
+
     }
 
     @FXML
