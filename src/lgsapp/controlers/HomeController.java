@@ -40,6 +40,12 @@ public class HomeController implements Initializable {
     private Desktop desktop = Desktop.getDesktop();
     private String imageFile;
 
+    //define row clicked variables
+    String clickfname;
+    String clicklname;
+    String clickoffice;
+    String clicksrchyr;
+
     Secratary secratary;
 
     @FXML
@@ -412,7 +418,7 @@ public class HomeController implements Initializable {
             if(curyr.isEmpty()){
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration Error");
+                alert.setTitle("Modify info Error");
                 String s = "Please enter the Current Year";
                 alert.setContentText(s);
                 alert.showAndWait();
@@ -422,7 +428,7 @@ public class HomeController implements Initializable {
             else if(firstname.isEmpty() && lastname.isEmpty()){
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration Error");
+                alert.setTitle("Modify info Error");
                 String s = "Please enter the name";
                 alert.setContentText(s);
                 alert.showAndWait();
@@ -432,7 +438,7 @@ public class HomeController implements Initializable {
             else if(!email.isEmpty() && !emailvalid){
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration Fail");
+                alert.setTitle("Modify info Fail");
                 String s = "The Email is not valid";
                 alert.setContentText(s);
                 alert.showAndWait();
@@ -442,7 +448,7 @@ public class HomeController implements Initializable {
             else if(!contact.isEmpty() && contact.length()!=10){
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration Fail");
+                alert.setTitle("Modify info Fail");
                 String s = "Please enter the valid phone number";
                 alert.setContentText(s);
                 alert.showAndWait();
@@ -452,7 +458,7 @@ public class HomeController implements Initializable {
             else if(office.isEmpty()){
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration Fail");
+                alert.setTitle("Modify info Fail");
                 String s = "Please enter the Divisional office";
                 alert.setContentText(s);
                 alert.showAndWait();
@@ -472,7 +478,7 @@ public class HomeController implements Initializable {
                     Connection con = DbConnect.getConnection();
                     PreparedStatement ps = null;
 
-                    String query = "INSERT INTO `secrataries`( `fname`, `lname`, `wop`, `office`, `contact`, `email`, `gender`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend`, `imageid`, `curyr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    String query = "UPDATE `secrataries` SET `fname`=?,`lname`=?,`wop`=?,`office`=?,`contact`=?,`email`=?,`gender`=?,`bday`=?,`fappdate`=?,`upgdate`=?,`retdate`=?,`incdate`=?,`salinc`=?,`yrbeg`=?,`yrmid`=?,`yrend`=?,`imageid`=?,`curyr`=? WHERE `fname`=? AND `lname` = ? AND  `office` =? AND `curyr` =?";
 
 
 
@@ -502,12 +508,16 @@ public class HomeController implements Initializable {
 
                     }
                     ps.setString(18, curyr);
+                    ps.setString(19, clickfname);
+                    ps.setString(20, clicklname);
+                    ps.setString(21, clickoffice);
+                    ps.setString(22, clicksrchyr);
 
 
                     if (ps.executeUpdate() > 0) {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Successfully Saved");
-                        String s = "Successfully Registered.";
+                        alert.setTitle("Successfully Modified");
+                        String s = "Successfully Modified.";
 
                         alert.setContentText(s);
                         alert.showAndWait();
@@ -545,7 +555,7 @@ public class HomeController implements Initializable {
                 } catch (SQLException e) {
 
                     Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Registration Fail");
+                    alert.setTitle("Modify info Fail");
                     String s = "Already added this some informations";
                     alert.setContentText(s);
                     alert.showAndWait();
@@ -556,7 +566,7 @@ public class HomeController implements Initializable {
         } catch (Exception e) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registration Fail");
+            alert.setTitle("Modify info Fail");
             String s = "Essential fields are not completed";
             alert.setContentText(s);
             alert.showAndWait();
