@@ -304,24 +304,276 @@ public class HomeController implements Initializable {
 
 
 
+    public boolean isValidEmailAddress(String email) {  //for email validation
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            result = false;
+        }
+        return result;
+    }
 
 
 
-    @FXML
-    void editInfo(MouseEvent event) throws IOException {
-       /* Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/home.fxml"));
 
-        Node node = (Node) event.getSource();
 
-        Stage stage = (Stage) node.getScene().getWindow();
 
-        stage.setScene(new Scene(root));
 
-        stage.setFullScreen (true);
-*/
+
+    //to fill the table view
+    public void refreshtable(String year){
+        String query = "SELECT  `fname`, `lname`, `wop`, `office`, `contact`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend` FROM `secrataries` WHERE `curyr` =?";
+        try {
+            PreparedStatement  ps = con.prepareStatement(query);
+            ps.setString(1,year);
+            ResultSet rs = ps.executeQuery();
+
+
+            while (rs.next()){
+                oblist.add(new Secratary(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),
+                        rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),
+                        rs.getString(12),rs.getString(13),rs.getString(14)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        colfname.setCellValueFactory(new PropertyValueFactory<>("fname"));
+        collname.setCellValueFactory(new PropertyValueFactory<>("lname"));
+        colwop.setCellValueFactory(new PropertyValueFactory<>("wop"));
+        coloffice.setCellValueFactory(new PropertyValueFactory<>("office"));
+        colcontact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colbday.setCellValueFactory(new PropertyValueFactory<>("bday"));
+        colfappdate.setCellValueFactory(new PropertyValueFactory<>("fappdate"));
+        colupgdate.setCellValueFactory(new PropertyValueFactory<>("upgradedate"));
+        colretdate.setCellValueFactory(new PropertyValueFactory<>("retdate"));
+        colincdate.setCellValueFactory(new PropertyValueFactory<>("incdate"));
+        colinc.setCellValueFactory(new PropertyValueFactory<>("inc"));
+        colbeg.setCellValueFactory(new PropertyValueFactory<>("beg"));
+        colmid.setCellValueFactory(new PropertyValueFactory<>("mid"));
+        colend.setCellValueFactory(new PropertyValueFactory<>("end"));
+
+        tblData.setItems(oblist); //set the oblist to table view
+
+
 
 
     }
+
+
+
+
+
+
+
+
+   //update secretary information
+
+    @FXML
+    void editInfo(MouseEvent event) throws IOException {
+
+
+        try {
+
+            String firstname = txtFirstname.getText();
+            String lastname = txtLastname.getText();
+            String wop = txtWOP.getText();
+            String contact = txtContact.getText();
+            String email = txtEmail.getText();
+            String gender = cmbGender.getSelectionModel().getSelectedItem().toString();
+            String office = cmbOffice.getSelectionModel().getSelectedItem().toString();
+            String curyr = cmbCuryr.getSelectionModel().getSelectedItem().toString();
+            String bday = txtBirthday.getValue().toString();
+            String fappdate = txtFirstAppdate.getValue().toString();
+            String upgrade = txtUpgrading.getValue().toString();
+            String retdate = txtRetirement.getValue().toString();
+            String incdate = txtIncrement.getValue().toString();
+            String chpb = getchkboxData(chkPb);
+            String chpm = getchkboxData(chkPm);
+            String chpe = getchkboxData(chkPe);
+            String incremantal = getIncremantal();
+
+            if(selectedFile == null){
+                fis = null;
+            }
+            else {
+                fis = new FileInputStream(selectedFile);//get the image file
+
+            }
+
+            boolean emailvalid = isValidEmailAddress(email); //for valid email address
+            boolean valid = true;
+
+
+            //form validations
+
+            if(curyr.isEmpty()){
+                valid = false;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Error");
+                String s = "Please enter the Current Year";
+                alert.setContentText(s);
+                alert.showAndWait();
+
+            }
+
+            else if(firstname.isEmpty() && lastname.isEmpty()){
+                valid = false;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Error");
+                String s = "Please enter the name";
+                alert.setContentText(s);
+                alert.showAndWait();
+
+            }
+
+            else if(!email.isEmpty() && !emailvalid){
+                valid = false;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Fail");
+                String s = "The Email is not valid";
+                alert.setContentText(s);
+                alert.showAndWait();
+            }
+
+
+            else if(!contact.isEmpty() && contact.length()!=10){
+                valid = false;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Fail");
+                String s = "Please enter the valid phone number";
+                alert.setContentText(s);
+                alert.showAndWait();
+
+            }
+
+            else if(office.isEmpty()){
+                valid = false;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration Fail");
+                String s = "Please enter the Divisional office";
+                alert.setContentText(s);
+                alert.showAndWait();
+
+            }
+
+
+
+
+
+            else {
+
+                try {
+
+                    // secratary = new Secratary();
+                    // PreparedStatement ps = secratary.addsecretary(firstname,lastname,wop,office,contact,email,gender,bday,fappdate,upgrade,retdate,incdate,incremantal,chpb,chpm,chpe,fis,curyr);
+                    Connection con = DbConnect.getConnection();
+                    PreparedStatement ps = null;
+
+                    String query = "INSERT INTO `secrataries`( `fname`, `lname`, `wop`, `office`, `contact`, `email`, `gender`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend`, `imageid`, `curyr`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+
+
+                    ps = con.prepareStatement(query);
+                    ps.setString(1, firstname);
+                    ps.setString(2, lastname);
+                    ps.setString(3, wop);
+                    ps.setString(4, office);
+                    ps.setString(5, contact);
+                    ps.setString(6, email);
+                    ps.setString(7, gender);
+                    ps.setString(8, bday);
+                    ps.setString(9, fappdate);
+                    ps.setString(10, upgrade);
+                    ps.setString(11, retdate);
+                    ps.setString(12, incdate);
+                    ps.setString(13, incremantal);
+                    ps.setString(14, chpb);
+                    ps.setString(15, chpm);
+                    ps.setString(16, chpe);
+
+                    if (selectedFile == null){
+                        ps.setBinaryStream(17, null ,0);
+                    }
+                    else {
+                        ps.setBinaryStream(17, (InputStream) fis, (int) selectedFile.length());
+
+                    }
+                    ps.setString(18, curyr);
+
+
+                    if (ps.executeUpdate() > 0) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Successfully Saved");
+                        String s = "Successfully Registered.";
+
+                        alert.setContentText(s);
+                        alert.showAndWait();
+
+
+                        String srchyr = txtsearchyr.getText();
+                        tblData.getItems().clear(); //clear all early data
+                        refreshtable(srchyr);  //refresh the table view
+
+                        Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
+                        img_frame.setImage(image);
+
+                        txtFirstname.setText("");
+                        txtLastname.setText("");
+                        txtWOP.setText("");
+                        txtContact.setText("");
+                        txtEmail.setText("");
+                        cmbCuryr.setValue(null);
+                        cmbGender.setValue(null);
+                        cmbOffice.setValue(null);
+
+                        txtBirthday.setValue(null);
+                        txtFirstAppdate.setValue(null);
+                        txtUpgrading.setValue(null);
+                        txtRetirement.setValue(null);
+                        txtIncrement.setValue(null);
+
+                        chkPb.setSelected(false);
+                        chkPm.setSelected(false);
+                        chkPe.setSelected(false);
+
+
+
+                    }
+                } catch (SQLException e) {
+
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Registration Fail");
+                    String s = "Already added this some informations";
+                    alert.setContentText(s);
+                    alert.showAndWait();
+                    e.printStackTrace();
+                }
+
+            }
+        } catch (Exception e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Registration Fail");
+            String s = "Essential fields are not completed";
+            alert.setContentText(s);
+            alert.showAndWait();
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     @FXML
     void deleteInfo(MouseEvent event) throws IOException {
