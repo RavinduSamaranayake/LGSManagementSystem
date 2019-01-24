@@ -20,6 +20,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    static String myusername = "";
 
     @FXML
     private TextField tf_username;
@@ -36,6 +37,8 @@ public class LoginController implements Initializable {
 
         username = tf_username.getText();
         password = pf_password.getText();
+
+        myusername = username;
 
         Connection con = DbConnect.getConnection();
 
@@ -71,7 +74,7 @@ public class LoginController implements Initializable {
                String s = "Enter The valid user name or password ";
                alert.setContentText(s);
                alert.showAndWait();
-               msg = "Invalid text entered: ";
+
 
 
 
@@ -117,6 +120,10 @@ public class LoginController implements Initializable {
 
         stage.setScene(new Scene(root));
 
+    }
+
+    public static String getMyusername(){
+        return myusername;
     }
 
 

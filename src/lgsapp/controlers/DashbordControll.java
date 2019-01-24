@@ -70,7 +70,7 @@ public class DashbordControll implements Initializable {
 
     @FXML
     void btnAdd(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/add_secrataries.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/signup.fxml"));
 
         Node node = (Node) event.getSource();
 
@@ -80,7 +80,7 @@ public class DashbordControll implements Initializable {
 
         stage.setScene(new Scene(root));
 
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
 
 
 

@@ -74,7 +74,7 @@
                <!-- <Button fx:id="btnModify" layoutX="62.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#saveInfo" prefHeight="32.0" prefWidth="72.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Save" />-->
                 <Button fx:id="btnEdit" layoutX="222.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#editInfo" prefHeight="32.0" prefWidth="61.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Edit" />
                 <Button fx:id="btnDelete" layoutX="141.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#deleteInfo" prefHeight="32.0" prefWidth="61.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Delete" />
-                <Button fx:id="btnAdd" layoutX="312.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#addInfo" prefHeight="32.0" prefWidth="61.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Add " />
+                <Button fx:id="btnAdd" layoutX="312.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#addInfo" prefHeight="32.0" prefWidth="61.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Save" />
                 <Button fx:id="btnUpload" layoutX="284.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#uploadPic" prefHeight="32.0" prefWidth="93.0" styleClass="button2" stylesheets="@../fullpackstyling.css" text="Change avatar" />
                 <ImageView fx:id="img_frame" fitHeight="125.0" fitWidth="136.0" layoutX="262.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                 <Label layoutX="71.0" layoutY="596.0" text="performance report " textFill="WHITE">

@@ -30,6 +30,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
@@ -592,75 +593,60 @@ public class HomeController implements Initializable {
     @FXML
     void deleteInfo(MouseEvent event) throws IOException {
 
-        String query = "DELETE FROM `secratary` WHERE `fname` = ? AND `lname` = ? AND `office` = ? AND `curyr` = ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,clickfname);
-            ps.setString(2,clicklname);
-            ps.setString(3,clickoffice);
-            ps.setString(4,clicksrchyr);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION); //confirmation alert
+        alert.setTitle("Delete Secretary");
+        String s = "Are You Sure Want to delete a secretary..!";
+        alert.setContentText(s);
+        Optional<ButtonType> result = alert.showAndWait();
+        if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
 
-            if(ps.executeUpdate()>0){
+            String query = "DELETE FROM `secratary` WHERE `fname` = ? AND `lname` = ? AND `office` = ? AND `curyr` = ?";
+            try {
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1, clickfname);
+                ps.setString(2, clicklname);
+                ps.setString(3, clickoffice);
+                ps.setString(4, clicksrchyr);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Successfully Deleted");
-            String s = "Successfully Deleted a secretary.";
-
-            alert.setContentText(s);
-            alert.showAndWait();
-
-
-            String srchyr = txtsearchyr.getText();
-            tblData.getItems().clear(); //clear all early data
-            refreshtable(srchyr);  //refresh the table view
-
-            Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
-            img_frame.setImage(image);
-
-            txtFirstname.setText("");
-            txtLastname.setText("");
-            txtWOP.setText("");
-            txtContact.setText("");
-            txtEmail.setText("");
-            cmbCuryr.setValue(null);
-            cmbGender.setValue(null);
-            cmbOffice.setValue(null);
-
-            txtBirthday.setValue(null);
-            txtFirstAppdate.setValue(null);
-            txtUpgrading.setValue(null);
-            txtRetirement.setValue(null);
-            txtIncrement.setValue(null);
-
-            chkPb.setSelected(false);
-            chkPm.setSelected(false);
-            chkPe.setSelected(false);
+                if (ps.executeUpdate() > 0) {
 
 
+                    String srchyr = txtsearchyr.getText();
+                    tblData.getItems().clear(); //clear all early data
+                    refreshtable(srchyr);  //refresh the table view
+
+                    Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
+                    img_frame.setImage(image);
+
+                    txtFirstname.setText("");
+                    txtLastname.setText("");
+                    txtWOP.setText("");
+                    txtContact.setText("");
+                    txtEmail.setText("");
+                    cmbCuryr.setValue(null);
+                    cmbGender.setValue(null);
+                    cmbOffice.setValue(null);
+
+                    txtBirthday.setValue(null);
+                    txtFirstAppdate.setValue(null);
+                    txtUpgrading.setValue(null);
+                    txtRetirement.setValue(null);
+                    txtIncrement.setValue(null);
+
+                    chkPb.setSelected(false);
+                    chkPm.setSelected(false);
+                    chkPe.setSelected(false);
+
+
+                }
+            } catch (SQLException e) {
+
+
+                e.printStackTrace();
             }
 
-            else {
-
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Delete Fail");
-                String s = " Delete Fail";
-                alert.setContentText(s);
-                alert.showAndWait();
-
-
-            }
-        } catch (SQLException e) {
-
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Delete Fail");
-            String s = "Can't Delete a secretary";
-            alert.setContentText(s);
-            alert.showAndWait();
-            e.printStackTrace();
         }
-
     }
-
 
 
 

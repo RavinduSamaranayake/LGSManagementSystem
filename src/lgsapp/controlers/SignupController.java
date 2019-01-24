@@ -17,12 +17,12 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class SignupController implements Initializable {
+
+    Connection con = DbConnect.getConnection();
 
     @FXML
     private TextField txt_uname;
@@ -55,13 +55,15 @@ public class SignupController implements Initializable {
     @FXML
     void btnlogin(MouseEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/login.fxml"));
-
+        //load dashboard
+        Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/dashbord.fxml"));
         Node node = (Node) event.getSource();
-
         Stage stage = (Stage) node.getScene().getWindow();
-
         stage.setScene(new Scene(root));
+        stage.setFullScreen (true);
+
+
+
 
     }
 
@@ -78,7 +80,7 @@ public class SignupController implements Initializable {
         if(username.isEmpty()){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("SignUp Error");
+            alert.setTitle("Can't change your account details");
             String s = "The Username is empty";
             alert.setContentText(s);
             alert.showAndWait();
@@ -88,7 +90,7 @@ public class SignupController implements Initializable {
         else if(email.isEmpty()){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("SignUp Error");
+            alert.setTitle("Can't change your account details");
             String s = "The Email is empty";
             alert.setContentText(s);
             alert.showAndWait();
@@ -98,7 +100,7 @@ public class SignupController implements Initializable {
         else if(!emailvalid){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("SignUp Error");
+            alert.setTitle("Can't change your account details");
             String s = "The Email is not valid";
             alert.setContentText(s);
             alert.showAndWait();
@@ -107,7 +109,7 @@ public class SignupController implements Initializable {
         else if(password.isEmpty()){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("SignUp Error");
+            alert.setTitle("Can't change your account details");
             String s = "The Password is empty";
             alert.setContentText(s);
             alert.showAndWait();
@@ -116,7 +118,7 @@ public class SignupController implements Initializable {
         else if(password.length()<8){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("SignUp Warning");
+            alert.setTitle("Can't change your account details");
             String s = "The Password must be at least 8 characters ";
             alert.setContentText(s);
             alert.showAndWait();
@@ -126,7 +128,7 @@ public class SignupController implements Initializable {
         else if(password.length()>20){
             valid = false;
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("SignUp Warning");
+            alert.setTitle("Can't change your account details");
             String s = "The Password is too long ";
             alert.setContentText(s);
             alert.showAndWait();
@@ -134,23 +136,34 @@ public class SignupController implements Initializable {
         }
 
         else {
-            Connection connection = DbConnect.getConnection();
+
 
 
             try {
 
 
-                Statement statement = connection.createStatement();
+                PreparedStatement ps = null;
 
-                int status = statement.executeUpdate("insert into users (username,email,password)" +
-                        " values('" + username + "','" + email + "','" + password + "')");
+                String query = "UPDATE `users` SET `username`=?,`email`=?,`password`=?  WHERE `username`=? ";
 
-                if (status > 0) {
+
+
+                ps = con.prepareStatement(query);
+                ps.setString(1, username);
+                ps.setString(2, email);
+                ps.setString(3, password);
+
+                String myuname = LoginController.getMyusername();
+                ps.setString(4, myuname);
+
+
+
+                if (ps.executeUpdate() > 0) {
                     System.out.println("user registered");
-                    valid = false;
+
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("SignUp Cofirmation");
-                    String s = "Registration Sucessfully";
+                    alert.setTitle("Change Your Account details");
+                    String s = "Successfully Change Your Account details";
                     alert.setContentText(s);
                     alert.showAndWait();
 
@@ -159,16 +172,26 @@ public class SignupController implements Initializable {
                     txt_password.setText("");
 
 
+                   //load dashboard
+                    Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/dashbord.fxml"));
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setFullScreen (true);
+
+
                 }
 
             } catch (SQLException e) {
                 e.printStackTrace();
                 valid = false;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("SignUp Error");
-                String s = "Username or Email is already used";
+                alert.setTitle("Can't change your account details");
+                String s = "Something went wrong";
                 alert.setContentText(s);
                 alert.showAndWait();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         }
@@ -189,6 +212,31 @@ public class SignupController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+             String myuname = LoginController.getMyusername();
+             PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement("SELECT * FROM users WHERE username=? ");
+            ps.setString(1,myuname);
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                txt_uname.setText(myuname);
+                txt_email.setText(rs.getString(2));
+                txt_password.setText(rs.getString(3));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
+
 
     }
 }
