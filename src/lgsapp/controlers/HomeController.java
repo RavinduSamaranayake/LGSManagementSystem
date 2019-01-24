@@ -2,6 +2,8 @@ package lgsapp.controlers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,12 +31,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import java.util.function.Predicate;
 
 
 public class HomeController implements Initializable {
     private File selectedFile =null;
     private FileInputStream fis;
+
+    Connection con = DbConnect.getConnection();
 
     private FileChooser fileChooser;
     private Desktop desktop = Desktop.getDesktop();
@@ -156,7 +160,7 @@ public class HomeController implements Initializable {
 
 
     ObservableList<Secratary> oblist = FXCollections.observableArrayList(); //get data from model
-    Connection con = DbConnect.getConnection();
+
 
 
 
@@ -330,7 +334,7 @@ public class HomeController implements Initializable {
 
     //to fill the table view
     public void refreshtable(String year){
-        String query = "SELECT  `fname`, `lname`, `wop`, `office`, `contact`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend` FROM `secrataries` WHERE `curyr` =?";
+        String query = "SELECT  `fname`, `lname`, `wop`, `office`, `contact`, `bday`, `fappdate`, `upgdate`, `retdate`, `incdate`, `salinc`, `yrbeg`, `yrmid`, `yrend` FROM `secratary` WHERE `curyr` =?";
         try {
             PreparedStatement  ps = con.prepareStatement(query);
             ps.setString(1,year);
@@ -475,10 +479,10 @@ public class HomeController implements Initializable {
 
                     // secratary = new Secratary();
                     // PreparedStatement ps = secratary.addsecretary(firstname,lastname,wop,office,contact,email,gender,bday,fappdate,upgrade,retdate,incdate,incremantal,chpb,chpm,chpe,fis,curyr);
-                    Connection con = DbConnect.getConnection();
+
                     PreparedStatement ps = null;
 
-                    String query = "UPDATE `secrataries` SET `fname`=?,`lname`=?,`wop`=?,`office`=?,`contact`=?,`email`=?,`gender`=?,`bday`=?,`fappdate`=?,`upgdate`=?,`retdate`=?,`incdate`=?,`salinc`=?,`yrbeg`=?,`yrmid`=?,`yrend`=?,`imageid`=?,`curyr`=? WHERE `fname`=? AND `lname` = ? AND  `office` =? AND `curyr` =?";
+                    String query = "UPDATE `secratary` SET `fname`=?,`lname`=?,`wop`=?,`office`=?,`contact`=?,`email`=?,`gender`=?,`bday`=?,`fappdate`=?,`upgdate`=?,`retdate`=?,`incdate`=?,`salinc`=?,`yrbeg`=?,`yrmid`=?,`yrend`=?,`imageid`=?,`curyr`=? WHERE `fname`=? AND `lname` = ? AND  `office` =? AND `curyr` =?";
 
 
 
@@ -527,7 +531,7 @@ public class HomeController implements Initializable {
                         tblData.getItems().clear(); //clear all early data
                         refreshtable(srchyr);  //refresh the table view
 
-                        Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
+                       Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
                         img_frame.setImage(image);
 
                         txtFirstname.setText("");
@@ -583,19 +587,86 @@ public class HomeController implements Initializable {
 
 
 
-
+   //delete the selected record
 
     @FXML
     void deleteInfo(MouseEvent event) throws IOException {
-       /* Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/about.fxml"));
 
-        Node node = (Node) event.getSource();
+        String query = "DELETE FROM `secratary` WHERE `fname` = ? AND `lname` = ? AND `office` = ? AND `curyr` = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,clickfname);
+            ps.setString(2,clicklname);
+            ps.setString(3,clickoffice);
+            ps.setString(4,clicksrchyr);
 
-        Stage stage = (Stage) node.getScene().getWindow();
+            if(ps.executeUpdate()>0){
 
-        stage.setScene(new Scene(root));
-*/
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successfully Deleted");
+            String s = "Successfully Deleted a secretary.";
+
+            alert.setContentText(s);
+            alert.showAndWait();
+
+
+            String srchyr = txtsearchyr.getText();
+            tblData.getItems().clear(); //clear all early data
+            refreshtable(srchyr);  //refresh the table view
+
+            Image image = new Image("lgsapp/myicons/icons8-administrator-male-80.png");  //refresh image view
+            img_frame.setImage(image);
+
+            txtFirstname.setText("");
+            txtLastname.setText("");
+            txtWOP.setText("");
+            txtContact.setText("");
+            txtEmail.setText("");
+            cmbCuryr.setValue(null);
+            cmbGender.setValue(null);
+            cmbOffice.setValue(null);
+
+            txtBirthday.setValue(null);
+            txtFirstAppdate.setValue(null);
+            txtUpgrading.setValue(null);
+            txtRetirement.setValue(null);
+            txtIncrement.setValue(null);
+
+            chkPb.setSelected(false);
+            chkPm.setSelected(false);
+            chkPe.setSelected(false);
+
+
+            }
+
+            else {
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Delete Fail");
+                String s = " Delete Fail";
+                alert.setContentText(s);
+                alert.showAndWait();
+
+
+            }
+        } catch (SQLException e) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Delete Fail");
+            String s = "Can't Delete a secretary";
+            alert.setContentText(s);
+            alert.showAndWait();
+            e.printStackTrace();
+        }
+
     }
+
+
+
+
+
+
+
 
     @FXML
     void go(MouseEvent event) throws IOException {  //load the table
