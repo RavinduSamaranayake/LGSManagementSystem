@@ -43,7 +43,7 @@
                                 <DropShadow />
                             </effect>
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 2em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #0C39FF;" text="Change User Account" />
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 2em; -fx-font-family: Quicksand; -fx-font-weight: bold; -fx-fill: #0C39FF;" text="User Account" />
                                 <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: #a2a2a2; -fx-border-width: 0px 0px 2px 0px;">
                                     <VBox.margin>
                                         <Insets top="30.0" />

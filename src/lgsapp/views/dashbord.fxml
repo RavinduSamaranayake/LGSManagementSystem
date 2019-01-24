@@ -77,14 +77,14 @@
                 </Button>
 
 
-                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnAdd" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Add Secretaries" GridPane.columnIndex="1">
+                <Button fx:id="btnAddSec" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnAdd" prefHeight="181.0" prefWidth="242.0" stylesheets="@../fullpackstyling.css" text="Your Account" GridPane.columnIndex="1">
                     <graphic>
                        <!-- <FontAwesomeIconView fill="#2d75e8"   size="50" />-->
                     </graphic>
                     <graphic>
                         <ImageView fitHeight="75.0" fitWidth="110.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../myicons/icons8-add-user-group-man-man-80.png" />
+                                <Image url="@../myicons/icons8-administrator-male-80.png" />
                             </image></ImageView>
                     </graphic>
                 </Button>

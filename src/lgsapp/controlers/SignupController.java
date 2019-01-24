@@ -185,9 +185,9 @@ public class SignupController implements Initializable {
             } catch (SQLException e) {
                 e.printStackTrace();
                 valid = false;
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Can't change your account details");
-                String s = "Something went wrong";
+                String s = "Please re Login and try..";
                 alert.setContentText(s);
                 alert.showAndWait();
             } catch (IOException e) {
