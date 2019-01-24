@@ -46,8 +46,7 @@ public class LoginController implements Initializable {
            ResultSet rs = ps.executeQuery();
 
            String msg = "Text saved: ";
-           boolean valid = true;
-
+           
            if (rs.next()) {
                System.out.print("Login Sucess");
                Parent root = FXMLLoader.load(getClass().getResource("/lgsapp/views/dashbord.fxml"));
@@ -66,7 +65,7 @@ public class LoginController implements Initializable {
                System.out.print("Login fail");
 
                //Add dialog box
-               valid = false;
+
                Alert alert = new Alert(Alert.AlertType.ERROR);
                alert.setTitle("Login Error");
                String s = "Enter The valid user name or password ";
